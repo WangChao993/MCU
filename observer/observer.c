@@ -1,4 +1,4 @@
-#include "../inc/observer.h"
+#include "observer.h"
 #include <stdio.h>
 
 #include "../inc/tool.h"
