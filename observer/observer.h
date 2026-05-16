@@ -32,34 +32,5 @@ void    observer_eff_print_all(void);
 void    observer_eff_print_manager(ManagerID id);
 uint8_t observer_eff_get_observer_count(ManagerID id);
 
-// ==================== 灵活版本（字符串名称）====================
-// 适合需要动态创建、灵活性高的场景
-
-// 灵活版本配置
-#define FLEX_MAX_MANAGERS 8
-#define FLEX_MAX_NAME_LENGTH 16
-
-// 管理器结构
-typedef struct {
-    ObserverCallback callbacks[MAX_OBSERVERS_PER_MANAGER];
-    uint8_t observer_count;
-    char name[FLEX_MAX_NAME_LENGTH];
-} FlexObserverManager;
-
-// 系统结构
-typedef struct {
-    FlexObserverManager managers[FLEX_MAX_MANAGERS];
-    uint8_t manager_count;
-} FlexObserverSystem;
-
-// 灵活版本函数声明
-void observer_flex_init(FlexObserverSystem* system);
-uint8_t observer_flex_register(FlexObserverSystem* system, const char* manager_name, ObserverCallback callback);
-void observer_flex_notify(FlexObserverSystem* system, const char* manager_name, void* data, uint16_t length, uint16_t type);
-FlexObserverManager* observer_flex_get_manager(FlexObserverSystem* system, const char* manager_name);
-void observer_flex_print_all(FlexObserverSystem* system);
-void observer_flex_print_manager(FlexObserverSystem* system, const char* manager_name);
-uint8_t observer_flex_get_manager_count(FlexObserverSystem* system);
-uint8_t observer_flex_get_observer_count(FlexObserverSystem* system, const char* manager_name);
 
 #endif
