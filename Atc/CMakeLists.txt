@@ -8,13 +8,13 @@ set(CMAKE_C_STANDARD 99)
 
 # 查找源文件
 set(SOURCES
-    Atc/main.c
-    Atc/atc.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/main.c
+   ${CMAKE_CURRENT_SOURCE_DIR}/atc.c
 )
 
 # 查找头文件路径
 include_directories(
-    Atc
+    ${CMAKE_CURRENT_SOURCE_DIR}
 )
 
 # 创建可执行文件
