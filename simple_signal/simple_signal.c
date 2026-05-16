@@ -1,7 +1,8 @@
-#include "../inc/simple_signal.h"
+#include "simple_signal.h"
 #include <string.h>
 
-// 内部实现：160位 = 20字节
+// 内部实现:160位 = 20字节
+
 static uint8_t g_signals[20] = {0};
 
 // 检查信号是否有效
